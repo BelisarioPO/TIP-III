@@ -9,25 +9,32 @@ import Pelicula from "./components/Pelicula/Pelicula";
 import Favoritos from "./components/Favoritos/Favoritos";
 import Result from "./components/Result/Result";
 import Vertodas from "./components/Vertodas/Vertodas";
+import Unapelicula from "./components/Unapelicula/Unapelicula";
 import Notfound from "./components/Notfound/Notfound";
 
 function App() {
   return (
     
     <React.Fragment>
-      <section><h1>HOLA</h1>
       <Header />
-      </section>
+
+
+
       <Switch>
         <Route path="/" exact={true} component={Home} />
         <Route path="/Footer" component={Footer} />
         <Route path="/Header" component={Header} />
         <Route path="/Pelicula" component={Pelicula} />
+        <Route path="/Pelicula/id/:id" component={Unapelicula} />
         <Route path="/Favoritos" component={Favoritos} />
         <Route path="/Result" component={Result} />
         <Route path="/Vertodas" component={Vertodas} />
-        <Route path="/Notfound" component={Notfound} />
+        <Route path="" component={Notfound} />
       </Switch>
+
+
+
+      <Footer />
     </React.Fragment>
   );
 }

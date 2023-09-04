@@ -1,20 +1,23 @@
 import React from "react";
 import { Link } from "react-router-dom"
+import "./Header.css"
 
 function Header(props) {
-    return(
-        <nav>
-        <h1>ALGO</h1>
-        <ul className="menu">
-            <li><Link to="/">Home</Link></li>
-            <b>.</b>
-            <li><Link to="/Vertodas">Ver Todas</Link></li>
-            <b>.</b>
+    return (
+        <header className="header">
+            <div className="contenedorPadreHeader">
 
-        </ul>
-    </nav>
+                <ul className="ul-nav">
+                    <li><Link to="/">Home</Link></li>
 
+                    <li><Link to="/Vertodas">Ver Todas</Link></li>
 
-     )
+                    <li><Link to="/Favoritos">Favotitos</Link></li>
+                </ul>
+                <h1 className="BingleTon"> BingleTon+Reloaded</h1>
+            </div>
+        </header>
+
+    )
 }
 export default Header;

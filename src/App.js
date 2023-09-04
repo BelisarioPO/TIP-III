@@ -11,7 +11,7 @@ import Result from "./components/Result/Result";
 import Vertodas from "./components/Vertodas/Vertodas";
 import Unapelicula from "./components/Unapelicula/Unapelicula";
 import Notfound from "./components/Notfound/Notfound";
-import "./components/Home/Home.css";
+
 
 function App() {
   return (

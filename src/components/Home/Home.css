@@ -1,4 +1,12 @@
-body {
-    background-image:"./img/background.jpg";
+.body {
+    background-image: url(background.jpg);
     margin: 0%;
+}
+* {
+    margin: 0%;
+}
+
+.Pelis {
+    font-family: 'Times New Roman', Times, serif;
+    color: wheat;
 }

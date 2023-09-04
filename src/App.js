@@ -11,12 +11,15 @@ import Result from "./components/Result/Result";
 import Vertodas from "./components/Vertodas/Vertodas";
 import Unapelicula from "./components/Unapelicula/Unapelicula";
 import Notfound from "./components/Notfound/Notfound";
+import "./components/Home/Home.css";
 
 function App() {
   return (
     
     <React.Fragment>
       <Header />
+<div className="body">
+
 
 
 
@@ -32,7 +35,7 @@ function App() {
         <Route path="" component={Notfound} />
       </Switch>
 
-
+    </div>
 
       <Footer />
     </React.Fragment>

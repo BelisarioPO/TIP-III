@@ -20,11 +20,21 @@ class Home extends Component {
 
     render() {
         return (
-            <div>
-                <h1 classname ="Pelis">Home</h1>
-            </div>
-        );
-    }
+            <section className=''>
+
+                {
+                    this.state.datos.map((Obj, i)=>{
+                        console.log(this.state);
+                        if (i<5) {
+                            return(<Card title={ this.props.espeli ? Obj.title : Obj.name} poster={Obj.poster_path} description={Obj.overview} id={Obj.id}/>)
+                        }
+                        else{return (null)}
+                    })
+                }
+
+            </section>
+            
+        )}
 }
 
 export default Home;

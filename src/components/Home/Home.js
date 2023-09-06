@@ -47,9 +47,7 @@ class Home extends Component {
             ) : (
                 <p>Loading...</p> // Muestra un mensaje de carga mientras se obtienen los datos.
             )}
-
         </section>
-
     )
 }
 }

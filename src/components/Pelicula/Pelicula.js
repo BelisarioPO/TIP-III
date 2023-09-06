@@ -13,13 +13,28 @@ class Pelicula extends Component {
 
     componentDidMount() {
         let arrayFavoritos = [];
-
-        let recuperarStorage = localStorage.getItem("favoritos")
-        if (recuperarStorage !== null) {
-            arrayFavoritos = JSON.parse(recuperarStorage)
+        let recuperoStorage = localStorage.getItem("favoritos")
+        if (recuperoStorage !== null){
+            arrayFavoritos = JSON.parse(recuperoStorage);
+            if(arrayFavoritos.includes(this.props.id)){
+                this.setState({
+                    BotonFavorito : "Quitar de favoritos"
+                })
+            }
         }
+    }
+    agregarFav(){
+        //Agregar id adentro de array de favoritos y colocar ese array en localstorage
+        let arrayFavoritos = []
+        arrayFavoritos.push(id)
+        //subirlo a local storage y stringifearlo
+        let arrayFavoritosAString = JSON.stringify(arrayFavoritos)
+        localStorage.setItem("favoritos" , arrayFavoritosAString)
 
-
+        this.setState({
+            BotonFavorito : "Quitar de favoritos"
+        }
+        )
     }
 
 

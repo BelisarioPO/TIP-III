@@ -25,14 +25,16 @@ class Pelicula extends Component {
 
     render() {
         console.log(this.props.poster)
-        return(<article className=''>
+        return(
+            <article className="">
         <img src={`https://image.tmdb.org/t/p/w500${this.props.poster}`} alt={this.props.title} className='img-index' />
         
         <button onClick={() => this.mostrarDetalles()} className="" type="button">{this.state.BotonDesc}</button>
         <button onClick={() => this.agregarFav(this.props.id)} className="" type="button">{this.state.BotonFavorito}</button>
         <p className="Pelis">{this.props.title}</p>
         <p class={this.state.ocultarInfo ? 'Ocultar' : 'Ver Mas'}>{this.props.description}</p>
-    </article>)
+    </article>            
+    )
     }
 }
 

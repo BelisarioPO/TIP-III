@@ -28,7 +28,7 @@ class Home extends Component {
 
     render() {
     return (
-        <section className=''>
+        <section className='listado-peliculas-favoritas'>
             <form onSubmit={(event) => this.evitarSubmit(event)} className=''>
                 <label> FORMS</label>
                 <input type='text' onChange={(event) => this.controlarCambios(event)} value={this.state.forms} className='buscador' />

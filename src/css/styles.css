@@ -5,6 +5,10 @@ main{
     min-height: 100vh;
 }
 
+.row{
+    text-align: center;
+}
+
 .listado-peliculas-favoritas{
     display: flex;
     flex-direction: row;

@@ -1,5 +1,6 @@
 import React, { Component } from 'react';
 import Pelicula from '../Pelicula/Pelicula';
+import Buscador from "../Buscador/Buscador";
 
 class Home extends Component {
     constructor(props) {
@@ -15,9 +16,26 @@ class Home extends Component {
     controlarCambios(event){
         this.setState({forms: event.target.value});
         
-
+        
     }
      //CIERRA FORMS REACT
+
+
+    buscador(peli) {
+        if (peli !== '') {
+            fetch(`https://api.themoviedb.org/3/search/movie?api_key=04370869e911ae9d10d76ad2c6d1796e&query=${peli}`)
+                .then(resp => resp.json())
+                .then(data => this.setState({
+                    resultados: data.results
+                }))
+                .catch(err => console.log(err))
+        } else {
+            this.setState({
+                resultados: []
+            })
+        }
+    }
+
 
      componentDidMount() {
         fetch('https://api.themoviedb.org/3/movie/popular?api_key=b76faeee5fc3002a166c7f5c929c2c33&language=en-US&page=1')
@@ -29,12 +47,8 @@ class Home extends Component {
     render() {
     return (
         <section className='listado-peliculas-favoritas'>
-            <form onSubmit={(event) => this.evitarSubmit(event)} className=''>
-                <label> FORMS</label>
-                <input type='text' onChange={(event) => this.controlarCambios(event)} value={this.state.forms} className='buscador' />
-                <input type='submit' value="Submit" className='' />
 
-            </form>
+            <Buscador buscador={(peli)=> this.buscador(peli)}/>
 
             {this.state.datos ? (
                 this.state.datos.map((Obj, i) => {

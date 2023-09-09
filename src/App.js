@@ -11,6 +11,7 @@ import Result from "./components/Result/Result";
 import Vertodas from "./components/Vertodas/Vertodas";
 import Unapelicula from "./components/Unapelicula/Unapelicula";
 import Notfound from "./components/Notfound/Notfound";
+import Buscador from "./components/Buscador/Buscador";
 
 
 function App() {
@@ -32,6 +33,7 @@ function App() {
         <Route path="/Favoritos" component={Favoritos} />
         <Route path="/Result" component={Result} />
         <Route path="/Vertodas" component={Vertodas} />
+        <Route path="/Buscador" component={Buscador} />
         <Route path="" component={Notfound} />
       </Switch>
 

@@ -30,6 +30,7 @@ class Favoritos extends Component{
     render(){
      
         return(
+            <h1>HOLA</h1>
           // MAP DE OBJFAV
         )
 

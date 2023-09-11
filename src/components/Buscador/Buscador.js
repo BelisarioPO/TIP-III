@@ -25,7 +25,7 @@ class Buscador extends Component{
 			<>
 			<div className=''>
 			<form onSubmit={(event)=> this.prevenirRefresh(event)}>
-				<input className='buscadorInput' placeholder=' buscar peliculas' type='text' onChange={(event)=> this.actualizarEstado(event)} value={this.state.valorInput} required/>
+				<input className='buscador' placeholder=' buscar peliculas' type='text' onChange={(event)=> this.actualizarEstado(event)} value={this.state.valorInput} required/>
 			</form>
 			</div>
 			</>

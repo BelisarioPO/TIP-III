@@ -1,4 +1,5 @@
 import React, { Component } from 'react';
+import {Link} from 'react-router-dom';
 
 class Pelicula extends Component {
     constructor(props) {
@@ -59,7 +60,9 @@ class Pelicula extends Component {
     render() {
         return(
             <article className="itemsIndex">
+        <Link to={`/Pelicula/id/:${this.props.id}`}>
         <img src={`https://image.tmdb.org/t/p/w500${this.props.poster}`} alt={this.props.title} className='img-index' />
+        </Link>
         
         <button onClick={() => this.mostrarDetalles()} className="" type="button">{this.state.BotonDesc}</button>
         <button onClick={() => this.agregarFav(this.props.id)} className="" type="button">{this.state.BotonFavorito}</button>

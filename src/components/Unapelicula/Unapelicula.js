@@ -1,13 +1,31 @@
-import React from "react";
-function Unapelicula(props) {
-    const id = props.match.params.id
-    return(
-        <div>
-            <h1>El id de la pelicula es : {id}</h1>
-        </div>
-        
-        
-        
-        )
+import React, { Component } from 'react';
+import {Link} from 'react-router-dom';
+
+class Unapelicula extends Component {
+    constructor(props){
+        super(props)
+        this.state ={
+            id : props.match.params.id
+
+        }
+    }
+
+    componentDidMount (){
+        const url = `https://api.themoviedb.org/3/movie/${this.state.id}?api_key=89b3abec13d5b342a0a8c66f4e9a5020&language=en-US`
+        fetch(url)
+        .then(response => response.json())
+        .then( data => this.setState({
+            Pelicula: data.results
+        }))
+        .catch(e => console.log(e))
+    }
+    render(){
+        return(
+            <div>
+                <h1>El id de la pelicula es : ${this.props.id} </h1>
+            </div>
+            )
+    }
 }
+
 export default Unapelicula;

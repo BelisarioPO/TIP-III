@@ -11,6 +11,7 @@ class Vertodas extends Component {
     }
     componentDidMount() {
         //BUscamos datos
+        if (this.props.match.params.vertodas == "popular"){
         fetch(`https://api.themoviedb.org/3/movie/popular?api_key=b76faeee5fc3002a166c7f5c929c2c33&language=en-US&page=${this.props.masPelisUrl}`)
             .then(res => res.json())
             .then(data => this.setState({
@@ -20,6 +21,22 @@ class Vertodas extends Component {
 
             }))
             .catch()
+        }
+        else{
+            fetch(`https://api.themoviedb.org/3/movie/upcoming?api_key=b76faeee5fc3002a166c7f5c929c2c33&language=en-US&page=${this.props.masPelisUrl}`)
+            .then(res => res.json())
+            .then(data => this.setState({
+                peliculas: data.results,
+                datos: data.results
+
+
+            }))
+            .catch()
+        }
+
+
+
+
     }
     traerMas() {
         //Traer la siguiente página de peliculas

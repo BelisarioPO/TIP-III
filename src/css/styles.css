@@ -1,5 +1,12 @@
-/* Orden index */
+/* Ocultar mostrar desc */
+.VerMas {
+    display: none;
+}
 
+.Ocultar {
+    display: block;
+}
+/* Orden index */
 main{
     margin: 10px;
     min-height: 100vh;
@@ -268,6 +275,7 @@ flex-direction: row;
     list-style: none;
     padding: 20px;
     margin-right: auto;
+    gap: 20px
 }
 
 .a-nav {

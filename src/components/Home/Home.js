@@ -49,13 +49,13 @@ class Home extends Component {
                 {this.state.Populardatos ? (
                     <>
                         {this.state.Populardatos.map((Obj, i) => {
-                            console.log(this.state);
+                            
                             if (i < 5) {
                                 return (<Pelicula title={Obj.title} poster={Obj.poster_path} description={Obj.overview} id={Obj.id} />)
                             }
                             else { return (null) }
                         })}
-                        <button><Link to="/Vertodas">Vertodas</Link></button>
+                        <button><Link to="/Vertodas/popular">Vertodas</Link></button>
                     </>
                 ) : (
                     <p>Loading...</p> // Muestra un mensaje de carga mientras se obtienen los datos.
@@ -63,13 +63,13 @@ class Home extends Component {
                 {this.state.Upcomingdatos ? (
                     <>
                         {this.state.Upcomingdatos.map((Obj, i) => {
-                            console.log(this.state);
+                            
                             if (i < 5) {
                                 return (<Pelicula title={Obj.title} poster={Obj.poster_path} description={Obj.overview} id={Obj.id} />)
                             }
                             else { return (null) }
                         })}
-                        <button><Link to="/Vertodas">Vertodas</Link></button>
+                        <button><Link to="/Vertodas/upcoming">Vertodas</Link></button>
                     </>
                 ) : (
                     <p>Loading...</p> // Muestra un mensaje de carga mientras se obtienen los datos.

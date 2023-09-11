@@ -1,19 +1,39 @@
-import React from "react";
+import React, { Component } from 'react';
 
-function Favoritos(props) {
-    let Storage = localStorage.getItem('favoritos')
-    let recuperoStorage = JSON.parse(Storage)
-    console.log(recuperoStorage);
-    return(
-        <div>
-            <h1>cacona</h1>
-            <section className="listado-peliculas-favoritas">
+class Favoritos extends Component{
+    constructor(){
+        super()
+        this.state = {
+            objFAV:[]
+        }
+    }
+    componentDidMount(){
+        let IdFavoritos = [];
+        let resultadoId = [];
+        let recuperoStorage = JSON.parse(localStorage.getItem("favoritos"))
 
-            </section>
-        </div>
-        
-        
-        
+        if (recuperoStorage !== null){
+            //  console.log(recuperoStorage);
+            recuperoStorage.forEach(unFav => {
+                fetch(`https://api.themoviedb.org/3/movie/${unFav}?api_key=04370869e911ae9d10d76ad2c6d1796e`)
+                .then(res => res.json())
+                .then(data => {
+                    resultadoId.push(data)
+                    
+                    this.setState({objFAV:resultadoId}, ()=>console.log(this.state))
+                })
+            })
+           
+        }
+    }
+
+    render(){
+     
+        return(
+          // MAP DE OBJFAV
         )
+
+    }
+
 }
 export default Favoritos;

@@ -22,9 +22,14 @@ class Vertodas extends Component {
             .catch()
     }
     traerMas() {
-        //Traer la siguiente página de personajes
+        //Traer la siguiente página de peliculas
         console.log(this.state.masPelisUrl + 1);
-        fetch(`https://api.themoviedb.org/3/movie/popular?api_key=b76faeee5fc3002a166c7f5c929c2c33&language=en-US&page=${this.state.masPelisUrl + 1}`)
+        //hacer if que cambie la url (guardar la url en una variable que se llame url)
+        let Urlpopular = `https://api.themoviedb.org/3/movie/popular?api_key=b76faeee5fc3002a166c7f5c929c2c33&language=en-US&page=${this.state.masPelisUrl + 1}`
+        let Urlupcoming = `https://api.themoviedb.org/3/movie/upcoming?api_key=b76faeee5fc3002a166c7f5c929c2c33&language=en-US&page=${this.state.masPelisUrl + 1}`
+
+        if (this.props.match.params.vertodas == "popular"){
+            fetch(Urlpopular)
             .then(res => res.json())
             .then(data => {
                 console.log(data)
@@ -35,9 +40,27 @@ class Vertodas extends Component {
                 })
             })
             .catch()
+        }
+        else{
+            fetch(Urlupcoming)
+            .then(res => res.json())
+            .then(data => {
+                console.log(data)
+                this.setState({
+                    peliculas: this.state.peliculas.concat(data.results),
+                    masPelisUrl: this.state.masPelisUrl + 1
+
+                })
+            })
+            .catch()
+        }
+
     }
     render() {
+        console.log(this.props.match.params.vertodas)
         console.log(this.state.peliculas);
+
+
         return (
             <section className='listado-peliculas-favoritas'>
                 <React.Fragment>

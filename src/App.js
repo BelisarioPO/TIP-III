@@ -32,7 +32,7 @@ function App() {
         <Route path="/Pelicula/id/:id" component={Unapelicula} />
         <Route path="/Favoritos" component={Favoritos} />
         <Route path="/Result" component={Result} />
-        <Route path="/Vertodas" component={Vertodas} />
+        <Route path="/Vertodas/:vertodas" component={Vertodas} />
         <Route path="/Buscador" component={Buscador} />
         <Route path="" component={Notfound} />
       </Switch>

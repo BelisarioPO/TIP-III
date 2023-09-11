@@ -32,7 +32,11 @@ class Home extends Component {
     componentDidMount() {
         fetch('https://api.themoviedb.org/3/movie/popular?api_key=b76faeee5fc3002a166c7f5c929c2c33&language=en-US&page=1')
             .then(response => response.json())
-            .then(data => this.setState({ datos: data.results }))
+            .then(data => this.setState({ Populardatos: data.results }))
+            .catch(error => console.log(error));
+            fetch('https://api.themoviedb.org/3/movie/upcoming?api_key=b76faeee5fc3002a166c7f5c929c2c33&language=en-US&page=1')
+            .then(response => response.json())
+            .then(data => this.setState({ Upcomingdatos: data.results }))
             .catch(error => console.log(error));
     }
 
@@ -42,9 +46,23 @@ class Home extends Component {
 
                 <Buscador buscador={(peli) => this.buscador(peli)} />
 
-                {this.state.datos ? (
+                {this.state.Populardatos ? (
                     <>
-                        {this.state.datos.map((Obj, i) => {
+                        {this.state.Populardatos.map((Obj, i) => {
+                            console.log(this.state);
+                            if (i < 5) {
+                                return (<Pelicula title={Obj.title} poster={Obj.poster_path} description={Obj.overview} id={Obj.id} />)
+                            }
+                            else { return (null) }
+                        })}
+                        <button><Link to="/Vertodas">Vertodas</Link></button>
+                    </>
+                ) : (
+                    <p>Loading...</p> // Muestra un mensaje de carga mientras se obtienen los datos.
+                )}
+                {this.state.Upcomingdatos ? (
+                    <>
+                        {this.state.Upcomingdatos.map((Obj, i) => {
                             console.log(this.state);
                             if (i < 5) {
                                 return (<Pelicula title={Obj.title} poster={Obj.poster_path} description={Obj.overview} id={Obj.id} />)

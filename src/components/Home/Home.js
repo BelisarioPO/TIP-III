@@ -74,7 +74,7 @@ class Home extends Component {
                         <button><Link to="/Vertodas/upcoming">Vertodas</Link></button>
                     </>
                 ) : (
-                    <p>Loading...</p> // Muestra un mensaje de carga mientras se obtienen los datos.
+                    <img  className='imgif' src="terror.eye" alt="Loading..." /> // Muestra un mensaje de carga mientras se obtienen los datos.
                 )}
             </section>
         )

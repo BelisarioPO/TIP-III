@@ -64,7 +64,7 @@ class Pelicula extends Component {
         <button onClick={() => this.mostrarDetalles()} className="" type="button">{this.state.BotonDesc}</button>
         <button onClick={() => this.agregarFav(this.props.id)} className="" type="button">{this.state.BotonFavorito}</button>
         <p className="Pelis">{this.props.title}</p>
-        <p class={this.state.BotonDesc ? 'Ocultar' : 'Ver Mas'}>{this.props.description}</p>
+        <p className={this.state.BotonDesc ? 'Ocultar' : 'Ver Mas'}>{this.props.description}</p>
     </article>            
     )
     }

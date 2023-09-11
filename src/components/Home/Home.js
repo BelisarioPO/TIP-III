@@ -8,7 +8,8 @@ class Home extends Component {
         super(props)
         this.state = {
             datos: '',
-            forms: ''
+            forms: '',
+            resultados: []
         };
 
     }
@@ -45,6 +46,7 @@ class Home extends Component {
             <section className='listado-peliculas-favoritas'>
 
                 <Buscador buscador={(peli) => this.buscador(peli)} />
+                <div>{this.state.resultados}</div>
 
                 {this.state.Populardatos ? (
                     <>

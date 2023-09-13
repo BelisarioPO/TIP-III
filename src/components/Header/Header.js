@@ -11,7 +11,7 @@ function Header(props) {
 
                    
 
-                    <li><Link to="/Favoritos">Favotitos</Link></li>
+                    <li><Link to="/Favoritos">Favoritos</Link></li>
                 </ul>
                 <h1 className="BingleTon"> BingleTon+Reloaded</h1>
             </div>

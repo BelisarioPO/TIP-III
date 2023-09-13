@@ -7,9 +7,8 @@ class Pelicula extends Component {
         this.state = {
             favoritos: [],
             BotonDesc: "Mostrar descrpicion",
-            BotonFavorito: "Agregar a favoritos",
+            BotonFavorito: "Agregar a Favoritos",
         }
-
     }
 
     componentDidMount() {
@@ -38,14 +37,14 @@ class Pelicula extends Component {
         arrayFavoritos = arrayFavoritos.filter( unId => unId !== id);
 
         this.setState({
-            BotonFavorito: "Quitar de Favoritos"
+            BotonFavorito: "Agregar a Favoritos"
         })
 
 
     } else {
         arrayFavoritos.push(id);
         this.setState({
-            BotonFavorito: "Agregar a Favoritos"
+            BotonFavorito: "Quitar de Favoritos"
         })
     }
 

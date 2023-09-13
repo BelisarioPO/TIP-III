@@ -10,13 +10,14 @@ class Buscador extends Component{
 	}
 
 	prevenirRefresh(event){
-		event.preventDefault()
+		event.preventDefault();
+		window.location.replace ("/Result/" + this.state.valorInput)
 	}
 
 	actualizarEstado(event){
 		this.setState({
 			valorInput:event.target.value
-		}, ()=> this.props.buscador(this.state.valorInput)) //prop de home peticion API
+		})
 	}
 
 

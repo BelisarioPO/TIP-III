@@ -1,10 +1,12 @@
 import React from "react";
-function Result(props) {
+function Result({results}) {
     return(
-        <div>
-            <h1>Result</h1>
-        </div>
-        
+        // <ul>
+        //   {results.map((result) => (
+        //     <li key={result.id}>{result.title}</li>
+        //   ))}
+        // </ul>
+        <h1>Result</h1>
         
         
         )

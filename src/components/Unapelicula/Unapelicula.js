@@ -1,5 +1,4 @@
 import React, { Component } from 'react';
-import {Link} from 'react-router-dom';
 
 class Unapelicula extends Component {
     constructor(props){
@@ -24,7 +23,7 @@ class Unapelicula extends Component {
     render(){
         return(
             <div>
-
+                <img src={`https://image.tmdb.org/t/p/w500${this.state}`} alt=""/>
                 <h1>El id de la pelicula es : {this.state.id} </h1>
             </div>
             )

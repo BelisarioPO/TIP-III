@@ -10,6 +10,16 @@ class Pelicula extends Component {
             BotonFavorito: "Agregar a Favoritos",
         }
     }
+    mostrarDesc() {
+        const descripcionVisible = this.state.descripcionVisible;
+    
+        this.setState({
+            descripcionVisible: !descripcionVisible,
+            BotonDesc: descripcionVisible ? "Mostrar descripción" : "Ocultar descripción"
+            //,descripcionVisible: !descripcionVisible, se está actualiza el valor de descripcionVisible lo que significa que se cambiará de true a false o viceversa.
+            //Si descripcionVisible es verdadero, entonces BotonDesc será "Mostrar descripción", de lo contrario será "Ocultar descripción".
+        });
+    }
 
     componentDidMount() {
         let arrayFavoritos = [];
@@ -63,13 +73,14 @@ class Pelicula extends Component {
         <img src={`https://image.tmdb.org/t/p/w500${this.props.poster}`} alt={this.props.title} className='img-index' />
         </Link>
         
-        <button onClick={() => this.mostrarDetalles()} className="" type="button">{this.state.BotonDesc}</button>
+        <button onClick={() => this.mostrarDesc()} className="" type="button">{this.state.BotonDesc}</button>
         <button onClick={() => this.agregarFav(this.props.id)} className="" type="button">{this.state.BotonFavorito}</button>
         <p className="Pelis">{this.props.title}</p>
-        <p className={this.state.BotonDesc ? 'Ocultar' : 'Ver Mas'}>{this.props.description}</p>
+        <p className={this.state.descripcionVisible ? 'VerMas' : 'Ocultar'}>{this.props.description}</p> 
     </article>            
     )
-    }
+    }//Si this.state.descripcionVisible es verdadero, se asigna la clase 'VerMas'
+    //Si this.state.descripcionVisible es falso, se asigna la clase 'Ocultar'.
 }
 
 export default Pelicula;

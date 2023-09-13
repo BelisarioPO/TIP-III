@@ -19,7 +19,7 @@ class Pelicula extends Component {
             arrayFavoritos = JSON.parse(recuperoStorage);
             if(arrayFavoritos.includes(this.props.id)){
                 this.setState({
-                    BotonFavorito : "Quitar de favoritos"
+                    BotonFavorito : "Quitar de Favoritos"
                 })
             }
         }
@@ -38,14 +38,14 @@ class Pelicula extends Component {
         arrayFavoritos = arrayFavoritos.filter( unId => unId !== id);
 
         this.setState({
-            textoBoton: "Agregar a Favoritos"
+            BotonFavorito: "Quitar de Favoritos"
         })
 
 
     } else {
         arrayFavoritos.push(id);
         this.setState({
-            textoBoton: "Quitar de favoritos"
+            BotonFavorito: "Agregar a Favoritos"
         })
     }
 
@@ -60,7 +60,7 @@ class Pelicula extends Component {
     render() {
         return(
             <article className="itemsIndex">
-        <Link to={`/Pelicula/id/:${this.props.id}`}>
+        <Link to={`/Pelicula/id/${this.props.id}`}>
         <img src={`https://image.tmdb.org/t/p/w500${this.props.poster}`} alt={this.props.title} className='img-index' />
         </Link>
         

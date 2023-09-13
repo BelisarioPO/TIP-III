@@ -9,7 +9,9 @@ class Home extends Component {
         this.state = {
             datos: '',
             forms: '',
-            resultados: []
+            resultados: [],
+            Upcomingdatos: false,
+            Populardatos: false
         };
 
     }
@@ -33,7 +35,8 @@ class Home extends Component {
     componentDidMount() {
         fetch('https://api.themoviedb.org/3/movie/popular?api_key=b76faeee5fc3002a166c7f5c929c2c33&language=en-US&page=1')
             .then(response => response.json())
-            .then(data => this.setState({ Populardatos: data.results }))
+            .then(data => this.setState({ 
+                Populardatos: data.results}))
             .catch(error => console.log(error));
             fetch('https://api.themoviedb.org/3/movie/upcoming?api_key=b76faeee5fc3002a166c7f5c929c2c33&language=en-US&page=1')
             .then(response => response.json())
@@ -74,7 +77,7 @@ class Home extends Component {
                         <button><Link to="/Vertodas/upcoming">Vertodas</Link></button>
                     </>
                 ) : (
-                    <img  className='imgif' src="terror.eye" alt="Loading..." /> // Muestra un mensaje de carga mientras se obtienen los datos.
+                    <img  className='imgif' src="/terror-eye.gif" alt="Loading..." /> // Muestra un mensaje de carga mientras se obtienen los datos.
                 )}
             </section>
         )

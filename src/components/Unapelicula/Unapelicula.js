@@ -5,8 +5,8 @@ class Unapelicula extends Component {
     constructor(props){
         super(props)
         this.state ={
-            id : props.match.params.id
-
+            id : props.match.params.id,
+            pelicula: ''
         }
     }
 
@@ -14,15 +14,18 @@ class Unapelicula extends Component {
         const url = `https://api.themoviedb.org/3/movie/${this.state.id}?api_key=89b3abec13d5b342a0a8c66f4e9a5020&language=en-US`
         fetch(url)
         .then(response => response.json())
-        .then( data => this.setState({
-            Pelicula: data.results
-        }))
+        .then( data => {
+            console.log(data);
+            this.setState({
+            pelicula: data.results
+        })} )
         .catch(e => console.log(e))
     }
     render(){
         return(
             <div>
-                <h1>El id de la pelicula es : ${this.props.id} </h1>
+
+                <h1>El id de la pelicula es : {this.state.id} </h1>
             </div>
             )
     }

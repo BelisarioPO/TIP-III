@@ -29,7 +29,7 @@ function App() {
         <Route path="/Footer" component={Footer} />
         <Route path="/Header" component={Header} />
         <Route path="/Pelicula" component={Pelicula} />
-        <Route path="/Pelicula/id/:id" component={Unapelicula} />
+        <Route path="/Pelicula/id/:id" exact={true} component={Unapelicula} />
         <Route path="/Favoritos" component={Favoritos} />
         <Route path="/Result/:aBuscar" component={Result} />
         <Route path="/Vertodas/:vertodas" component={Vertodas} />

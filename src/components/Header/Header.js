@@ -9,7 +9,9 @@ function Header(props) {
                 <ul className="ul-nav">
                     <li><Link to="/">Home</Link></li>
 
-                   
+                    <li><Link to="/Vertodas/popular">Ver Todas Populares</Link></li>
+
+                    <li><Link to="/Vertodas/upcoming">Ver Todas Upcoming</Link></li>
 
                     <li><Link to="/Favoritos">Favoritos</Link></li>
                 </ul>

@@ -6,7 +6,8 @@ class Vertodas extends Component {
         this.state = {
             peliculas: [], //aparecer pelis
             masPelisUrl: 1,
-            datos: ''
+            datos: '',
+            query: '',
         }
     }
     componentDidMount() {
@@ -73,18 +74,47 @@ class Vertodas extends Component {
         }
 
     }
+
+    // Función para manejar el cambio en el campo de búsqueda
+    handleSearchChange = (event) => {
+        this.setState({ query: event.target.value });
+      };
+    
+      // Función para filtrar las películas basadas en la búsqueda
+      filtrarPorTitulo = (movies) => {
+        const { query } = this.state;
+        return movies.filter((pelicula) =>
+          pelicula.title.toLowerCase().includes(query.toLowerCase())
+        );
+      };
+
+
     render() {
         console.log(this.props.match.params.vertodas)
         console.log(this.state.peliculas);
 
+        const { peliculas, query } = this.state;
+  
+        const peliculasFiltradas = this.filtrarPorTitulo(
+        peliculas
+      );
+
 
         return (
             <section className='listado-peliculas-favoritas'>
+
+                <input
+                    type='text'
+                    placeholder='Filtrador'
+                    value={query}
+                    onChange={this.handleSearchChange}
+                />      
+
                 <React.Fragment>
                     <button onClick={() => this.traerMas()}> Traer más </button>
                     {this.state.peliculas ? (
                         <>
-                            {this.state.peliculas.map((Obj, i) => {
+                            {peliculasFiltradas.map((Obj, i) => {
                                 return (<Pelicula title={Obj.title} poster={Obj.poster_path} description={Obj.overview} id={Obj.id} />)
                             })}
                         </>

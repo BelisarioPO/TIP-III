@@ -79,6 +79,7 @@ class Unapelicula extends Component {
                     <p className="">Rating: {this.state.pelicula.popularity}</p>
                     <p className="">Duracion: {this.state.pelicula.runtime} minutos</p>
                     <p className="">Sinopsis: {this.state.pelicula.overview}</p>
+                    <p className="">Fecha de estreno: {this.state.pelicula.release_date}</p>
                     <ul className="detallespelisGENEROS">
                         {this.state.pelicula.genres.map( genero => <li className="color">{genero.name}</li>)}
                     </ul>

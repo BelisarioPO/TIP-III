@@ -95,9 +95,7 @@ class Vertodas extends Component {
 
         const { peliculas, query } = this.state;
   
-        const peliculasFiltradas = this.filtrarPorTitulo(
-        peliculas
-      );
+        const peliculasFiltradas = this.filtrarPorTitulo(peliculas);
 
 
         return (
